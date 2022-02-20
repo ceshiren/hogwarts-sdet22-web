@@ -7,7 +7,7 @@ import time
 import yaml
 from selenium import webdriver
 
-
+# 企业微信的cookie 有互踢机制。
 class TestCookieLogin:
     def setup_class(self):
         self.drvier = webdriver.Chrome()
