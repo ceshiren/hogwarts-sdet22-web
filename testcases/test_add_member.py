@@ -14,6 +14,7 @@ class TestAddMember:
         # self.contact.delete_all_members()
         # 用例执行之前的数据清理
         self.main = MainPage()
+        self.main.login()
 
     def teardown_class(self):
         self.main.quit()

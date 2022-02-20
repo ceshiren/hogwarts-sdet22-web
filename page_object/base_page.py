@@ -18,8 +18,8 @@ class BasePage:
             self.driver.implicitly_wait(3)
         else:
             self.driver:WebDriver = base_driver
-        if self._Base_URL:
-            self.__add_cookies()
+        # if self._Base_URL:
+        #     self.__add_cookies()
 
     def find(self, by, locator=None):
         if locator:

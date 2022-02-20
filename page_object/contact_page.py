@@ -6,11 +6,11 @@ import time
 
 from selenium.webdriver.common.by import By
 
-from page_object.base_page import BasePage
+from page_object.wechat_page import WechatPage
 
 
-class ContactPage(BasePage):
-    # _Base_URL = "https://work.weixin.qq.com/wework_admin/frame#contacts"
+class ContactPage(WechatPage):
+    _Base_URL = "https://work.weixin.qq.com/wework_admin/frame#contacts"
     def get_name_list(self):
         eles = self.driver.find_elements(By.CSS_SELECTOR, ".member_colRight_memberTable_td:nth-child(2)")
         name_list = [ele.text for ele in eles]

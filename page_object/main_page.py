@@ -5,10 +5,10 @@ __desc__ = '更多测试开发技术探讨，请访问：https://ceshiren.com/t/
 from selenium.webdriver.common.by import By
 
 from page_object.add_member_page import AddMemberPage
-from page_object.base_page import BasePage
+from page_object.wechat_page import WechatPage
 
 
-class MainPage(BasePage):
+class MainPage(WechatPage):
     _Base_URL = "https://work.weixin.qq.com/wework_admin/frame#index"
     _GOTO_ADD_MEMBER = ".ww_indexImg_AddMember"
 
