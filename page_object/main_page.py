@@ -16,6 +16,3 @@ class MainPage(BasePage):
         self.driver.find_element(By.CSS_SELECTOR, self._GOTO_ADD_MEMBER).click()
         return AddMemberPage(self.driver)
 
-    @classmethod
-    def get_base_url(cls):
-        return cls._Base_URL

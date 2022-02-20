@@ -21,8 +21,17 @@ class BasePage:
         if self._Base_URL:
             self.__add_cookies()
 
+    def find(self, by, locator=None):
+        if locator:
+            return self.driver.find_element(by, locator)
+        else:
+            return self.driver.find_element(*by)
+
+    def quit(self):
+        return self.driver.quit()
+
     def back_to_home_page(self):
-        self.driver.get(self._Base_URL)
+        return self.driver.get(self._Base_URL)
 
 
 
@@ -38,7 +47,7 @@ class BasePage:
         # 4.再次访问企业微信页面，发现无需扫码自动登录，而且可以多次使用
         self.driver.get(self._Base_URL)
 
-
-
+    def execute_js(self, scripts):
+        return self.driver.execute_script(scripts)
 
 

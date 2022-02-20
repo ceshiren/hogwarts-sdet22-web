@@ -11,7 +11,10 @@ from page_object.contact_page import ContactPage
 class AddMemberPage(BasePage):
 
     def add_member(self):
-        self.driver.find_element(By.CSS_SELECTOR, ".js_btn_cancel").click()
+        self.find(By.ID, "username").send_keys("timo10")
+        self.find(By.ID, "memberAdd_acctid").send_keys("11233")
+        self.find(By.ID, "memberAdd_phone").send_keys("13010001111")
+        self.find(By.CSS_SELECTOR, ".js_btn_save").click()
         return ContactPage(self.driver)
 
     def cancel_add_member(self):
