@@ -10,7 +10,8 @@ from page_object.wework_page import WeworkPage
 
 
 class AddMemberPage(WeworkPage):
-    INPUT_USERNAME = (By.ID, "username")
+    # 页面元素不要暴露出去，只给页面的方法提供使用。
+    _INPUT_USERNAME = (By.ID, "username")
 
 
     def add_member(self, username, accid, phone):
@@ -21,14 +22,14 @@ class AddMemberPage(WeworkPage):
         # 问题： driver实例化了多次，影响用例的执行
         # 解决方案： 让driver 只实例化一次
         # self.driver.find_element(By.ID, "username").send_keys("金克斯3")
-        self.find(self.INPUT_USERNAME).send_keys(username)
+        self.find(self._INPUT_USERNAME).send_keys(username)
         self.find(By.ID, "memberAdd_acctid").send_keys(accid)
         self.find(By.ID, "memberAdd_phone").send_keys(phone)
         self.find(By.CSS_SELECTOR, ".js_btn_save").click()
         return ContactPage(self.driver)
 
     def add_member_fail(self, username, accid, phone):
-        self.find(self.INPUT_USERNAME).send_keys(username)
+        self.find(self._INPUT_USERNAME).send_keys(username)
         self.find(By.ID, "memberAdd_acctid").send_keys(accid)
         self.find(By.ID, "memberAdd_phone").send_keys(phone)
         self.find(By.CSS_SELECTOR, ".js_btn_save").click()

@@ -47,6 +47,7 @@ class TestAddMember:
             goto_add_member_page().\
             add_member(name, "010442", "18900112222").\
             get_member_list()
+         # self.main.goto_add_member_page().
         # 4 断言 实际结果也就是成员列表 是否符合预期
         assert name in mem_list
 
